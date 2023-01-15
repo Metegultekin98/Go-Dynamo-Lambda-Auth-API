@@ -7,9 +7,12 @@ type User struct {
 	Password string `json:"password" dynamodbav:"password"`
 	Status   bool   `json:"status" dynamodbav:"status"`
 }
+type AuthResponse struct {
+	User        *User  `json:"user"`
+	AccessToken string `json:"accessToken"`
+}
 
-type CreateUser struct {
+type UserAuth struct {
 	Username string `json:"username" validate:"required"`
-	Email    string `json:"email" validate:"required"`
 	Password string `json:"password" validate:"required"`
 }
